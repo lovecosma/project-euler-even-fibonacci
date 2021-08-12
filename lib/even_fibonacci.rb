@@ -4,24 +4,20 @@
 
 def even_fibonacci_sum(num)
 
-     first = 1
-     second = 2
-     third = first + second
-     even = [2]
-     sum = 0
-     
-     while third < num
-        if third % 2 == 0
-            even << third
-        end 
-        first = second
-        second = third
-        third = first + second
-     end 
-# binding.pry
-     even.each do |v|
-        sum += v
-     end 
-    
-     return sum
+   fibNum = 2
+   prevNum = 1
+   nextNum = 0
+
+   sum = 0
+
+   while(fibNum <= num) 
+      if(fibNum % 2 == 0)
+         sum += fibNum
+      end 
+      nextNum = fibNum + prevNum
+      prevNum = fibNum
+      fibNum = nextNum
+   end 
+
+   return sum
 end 

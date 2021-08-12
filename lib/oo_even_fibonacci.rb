@@ -1,33 +1,27 @@
 # Implement your object-oriented solution here!
 class EvenFibonacci
 
-    attr_accessor :limit
 
     def initialize(limit)
         @limit = limit
     end 
 
     def sum
-
-        first = 1
-        second = 2
-        third = first + second
-        even = [2]
+        fibNum = 2
+        prevNum = 1
+        nextNum = 0
+     
         sum = 0
-        
-        while third < @limit
-           if third % 2 == 0
-               even << third
+     
+        while(fibNum <= @limit) 
+           if(fibNum % 2 == 0)
+              sum += fibNum
            end 
-           first = second
-           second = third
-           third = first + second
+           nextNum = fibNum + prevNum
+           prevNum = fibNum
+           fibNum = nextNum
         end 
-   # binding.pry
-        even.each do |v|
-           sum += v
-        end 
-       
+     
         return sum
    end 
 
